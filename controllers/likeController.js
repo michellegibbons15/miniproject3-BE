@@ -13,18 +13,6 @@ const getAllLikes = (res) =>{
     });
 };
 
-// get likes per post ID
-const getLikesByPost = (req, res) => {
-  Models.Like.findAll({ where: { postId: req.params.postId } })
-    .then((data) => {
-      res.send({ result: 200, data: data });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send({ result: 500, error: err.message });
-    });
-};
-
 // Like a post by postId
 const likePost = (req, res) => {
   const {userId, postId} = req.body
