@@ -9,7 +9,15 @@ const likeRoutes = require('./routes/likeRoutes')
 const app = express();
 require("dotenv").config();
 
+const cors = require('cors');
 app.use(express.json())
+app.use(cors({
+  origin: "http://localhost:5173",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  crednetials: true
+}));
+
+
 app.use('/api/users', userRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/posts', postRoutes);

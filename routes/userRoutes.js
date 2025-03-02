@@ -8,7 +8,11 @@ userRouter.get("/", (req, res) => {Controllers.getUsers(res);});
 
 // create user
 // http://localhost:8081/api/users/create
-userRouter.post("/create", (req, res) => {Controllers.createUser(req.body, res);});
+userRouter.post("/create", (req, res) => {Controllers.createUser(req, res);});
+
+// login user
+// http://localhost:8081/api/users/login
+userRouter.post("/login", (req, res) => {Controllers.loginUser(req, res);})
 
 // update user
 // http://localhost:8081/api/users/:id

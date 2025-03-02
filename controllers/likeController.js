@@ -47,7 +47,6 @@ const unlikePost = (req, res) => {
 
 module.exports = {
   getAllLikes,
-  getLikesByPost,
   likePost,
   unlikePost,
 }
