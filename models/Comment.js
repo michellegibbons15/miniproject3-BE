@@ -26,5 +26,12 @@ Comment.init(
     freezeTableName: true,
   }
 );
+// Define the association
+Comment.associate = (models) => {
+  Comment.belongsTo(models.Post, {
+    foreignKey: 'postId',
+    as: 'post', // Alias for Post
+  });
+};
 
 module.exports = Comment;

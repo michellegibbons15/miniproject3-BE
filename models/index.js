@@ -11,6 +11,9 @@ async function init() {
   await Comment.sync();
   await Like.sync();
   await Event.sync();
+
+  Post.associate({ Comment });
+  Comment.associate({ Post });
 };
 init();
 module.exports = {

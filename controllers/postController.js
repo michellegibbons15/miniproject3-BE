@@ -15,7 +15,10 @@ const createPost = (data, res) => {
 
 // get all posts
 const getAllPosts = (res) => {
-  Models.Post.findAll({})
+  Models.Post.findAll({
+    include: [{ model: Models.Comment, as: 'comments'  }], // Include associated comments
+    order: [["createdAt", "DESC"]], // Optional: Order posts by newest first
+  })
     .then((data) => {
       res.send({ result: 200, data: data });
     })
